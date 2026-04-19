@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Articles — Fast, Professional, Any Language</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0e0d;
+    --paper: #faf9f7;
+    --accent: #1a4fff;
+    --accent-light: #e8eeff;
+    --muted: #6b6a67;
+    --border: rgba(15,14,13,0.1);
+    --success: #0d7a4e;
+    --success-light: #e6f7f0;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 100;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .logo span { color: var(--accent); font-style: italic; }
+  nav a.order-link {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+  nav a.order-link:hover { opacity: 0.8; }
+
+  /* HERO */
+  .hero {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: var(--ink);
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    font-weight: 300;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,79,255,0.25); }
+
+  /* TRUST STRIP */
+  .trust-strip {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 0 0 4rem;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .trust-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+    flex-shrink: 0;
+  }
+
+  /* HOW IT WORKS */
+  .section { max-width: 760px; margin: 0 auto 5rem; padding: 0 2rem; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .section h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 2.5rem;
+    line-height: 1.15;
+  }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+  .step-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+  .step-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--accent);
+    font-style: italic;
+    margin-bottom: 0.75rem;
+    line-height: 1;
+  }
+  .step-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem; }
+  .step-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
+
+  /* PRICING */
+  .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .price-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    background: #fff;
+    transition: border-color 0.2s;
+  }
+  .price-card.popular {
+    border-color: var(--accent);
+    position: relative;
+  }
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.75rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .price-card .words { font-size: 0.875rem; color: var(--muted); margin-bottom: 0.5rem; }
+  .price-card .price { font-family: var(--serif); font-size: 2.5rem; color: var(--ink); line-height: 1; margin-bottom: 0.5rem; }
+  .price-card .desc { font-size: 0.8rem; color: var(--muted); }
+
+  /* FORM */
+  .form-section {
+    background: #fff;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 2rem;
+    margin-bottom: 4rem;
+  }
+  .form-wrap { max-width: 560px; margin: 0 auto; }
+  .form-header { margin-bottom: 2.5rem; }
+  .form-header h2 { font-family: var(--serif); font-size: 2rem; margin-bottom: 0.5rem; }
+  .form-header p { color: var(--muted); font-size: 0.95rem; }
+
+  /* Step indicator */
+  .steps-nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    gap: 0;
+  }
+  .snav-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    flex-shrink: 0;
+    transition: all 0.25s;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--muted);
+  }
+  .snav-dot.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .snav-dot.done { background: var(--success); color: #fff; border-color: var(--success); }
+  .snav-line { flex: 1; height: 1px; background: var(--border); transition: background 0.25s; }
+  .snav-line.done { background: var(--success); }
+
+  /* Panels */
+  .form-panel { display: none; }
+  .form-panel.active { display: block; }
+  .panel-title { font-size: 1.1rem; font-weight: 500; margin-bottom: 0.25rem; }
+  .panel-sub { font-size: 0.875rem; color: var(--muted); margin-bottom: 1.5rem; }
+
+  .field { margin-bottom: 1.25rem; }
+  .field label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.4rem; }
+  .field input[type=text], .field input[type=email] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--paper);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .field input:focus { border-color: var(--accent); background: #fff; }
+  .field .hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem; }
+
+  .opts-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+  .opt {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--paper);
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .opt:hover { border-color: rgba(26,79,255,0.3); background: #fff; }
+  .opt.sel { border-color: var(--accent); background: var(--accent-light); color: var(--accent); }
+  .opt-circle {
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 1.5px solid var(--border);
+    flex-shrink: 0; transition: all 0.15s;
+  }
+  .opt.sel .opt-circle { border-color: var(--accent); background: var(--accent); }
+  .opt-price { margin-left: auto; font-weight: 500; font-size: 0.875rem; }
+
+  .nav-btns { display: flex; gap: 0.75rem; margin-top: 2rem; }
+  .btn-back {
+    flex: 1; padding: 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .btn-back:hover { background: var(--paper); }
+  .btn-next {
+    flex: 2; padding: 0.8rem;
+    border: none;
+    border-radius: 100px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+  .btn-next:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* Summary */
+  .summary-box {
+    background: var(--paper);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .sum-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  .sum-row:last-child { border-bottom: none; }
+  .sum-label { color: var(--muted); }
+  .sum-val { font-weight: 500; }
+  .sum-total { display: flex; justify-content: space-between; padding-top: 1rem; font-weight: 500; font-size: 1.1rem; }
+
+  /* Success */
+  .success-box { text-align: center; padding: 2rem 0; }
+  .success-icon {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--success-light);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.25rem;
+  }
+  .success-icon svg { width: 28px; height: 28px; stroke: var(--success); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .success-box h3 { font-family: var(--serif); font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .success-box p { color: var(--muted); font-size: 0.95rem; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 480px) {
+    nav { padding: 1rem; }
+    .hero { padding: 3rem 1.25rem 2rem; }
+    .section { padding: 0 1.25rem; }
+    .form-section { padding: 2.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#">Article<span>Pro</span></a>
+  <a class="order-link" href="#order">Order now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">AI-powered · Human-reviewed</div>
+  <h1>SEO articles that <em>rank</em> — in any language</h1>
+  <p>Professional, keyword-optimized content delivered to your inbox within 24 hours.</p>
+  <a class="hero-cta" href="#order">Place your order</a>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-item"><div class="trust-dot"></div>24-hour delivery</div>
+  <div class="trust-item"><div class="trust-dot"></div>Any language</div>
+  <div class="trust-item"><div class="trust-dot"></div>SEO optimized</div>
+  <div class="trust-item"><div class="trust-dot"></div>Money-back guarantee</div>
+</div>
+
+<section class="section">
+  <div class="section-label">How it works</div>
+  <h2>Three steps to your article</h2>
+  <div class="steps">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h3>Fill the form</h3>
+      <p>Tell us the topic, keywords, length, tone, and language.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h3>We write it</h3>
+      <p>Our AI writes the article and a human reviews the quality.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h3>You receive it</h3>
+      <p>Ready-to-publish article lands in your inbox within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">Pricing</div>
+  <h2>Simple, transparent pricing</h2>
+  <div class="pricing">
+    <div class="price-card">
+      <div class="words">500 words</div>
+      <div class="price">$15</div>
+      <div class="desc">Short & focused. Great for product pages.</div>
+    </div>
+    <div class="price-card popular">
+      <div class="popular-badge">Most popular</div>
+      <div class="words">1000 words</div>
+      <div class="price">$30</div>
+      <div class="desc">The sweet spot for blog posts and guides.</div>
+    </div>
+    <div class="price-card">
+      <div class="words">2000 words</div>
+      <div class="price">$55</div>
+      <div class="desc">In-depth guides that dominate search results.</div>
+    </div>
+  </div>
+</section>
+
+<div class="form-section" id="order">
+  <div class="form-wrap">
+    <div class="form-header">
+      <h2>Place your order</h2>
+      <p>Takes about 2 minutes. Your article arrives within 24 hours.</p>
+    </div>
+
+    <div class="steps-nav">
+      <div class="snav-dot active" id="sd1">1</div>
+      <div class="snav-line" id="sl1"></div>
+      <div class="snav-dot" id="sd2">2</div>
+      <div class="snav-line" id="sl2"></div>
+      <div class="snav-dot" id="sd3">3</div>
+      <div class="snav-line" id="sl3"></div>
+      <div class="snav-dot" id="sd4">4</div>
+    </div>
+
+    <!-- Panel 1 -->
+    <div class="form-panel active" id="fp1">
+      <p class="panel-title">Tell us about your article</p>
+      <p class="panel-sub">What topic should we write about?</p>
+      <div class="field">
+        <label>Article topic *</label>
+        <input type="text" id="f-topic" placeholder="e.g. How to choose a laptop in 2025">
+      </div>
+      <div class="field">
+        <label>Keywords (comma-separated) *</label>
+        <input type="text" id="f-keys" placeholder="e.g. best laptop, budget laptop, laptop review">
+      </div>
+      <div class="nav-btns">
+        <button class="btn-next" style="flex:1" onclick="goTo(2)">Continue</button>
+      </div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="form-panel" id="fp2">
+      <p class="panel-title">Choose article length</p>
+      <p class="panel-sub">Longer articles tend to rank better for competitive keywords.</p>
+      <div class="opts-grid" id="og-len">
+        <div class="opt" onclick="pick('og-len',this,'500 words')">
+          <div class="opt-circle"></div>500 words — short &amp; focused<span class="opt-price">$15</span>
+        </div>
+        <div class="opt" onclick="pick('og-len',this,'1000 words')">
+          <div class="opt-circle"></div>1000 words — most popular<span class="opt-price">$30</span>
+        </div>
+        <div class="opt" onclick="pick('og-len',this,'2000 words')">
+          <div class="opt-circle"></div>2000 words — in-depth guide<span class="opt-price">$55</span>
+        </div>
+      </div>
+      <div class="nav-btns">
+        <button class="btn-back" onclick="goTo(1)">Back</button>
+        <button class="btn-next" onclick="goTo(3)">Continue</button>
+      </div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="form-panel" id="fp3">
+      <p class="panel-title">Tone &amp; language</p>
+      <p class="panel-sub">We write in any language — perfect for international audiences.</p>
+      <div class="field">
+        <label>Writing tone</label>
+        <div class="opts-grid" id="og-tone">
+          <div class="opt" onclick="pick('og-tone',this,'Professional')"><div class="opt-circle"></div>Professional</div>
+          <div class="opt" onclick="pick('og-tone',this,'Friendly')"><div class="opt-circle"></div>Friendly</div>
+          <div class="opt" onclick="pick('og-tone',this,'Neutral')"><div class="opt-circle"></div>Neutral</div>
+        </div>
+      </div>
+      <div class="field" style="margin-top:1.25rem">
+        <label>Article language</label>
+        <div class="opts-grid" id="og-lang">
+          <div class="opt" onclick="pick('og-lang',this,'English')"><div class="opt-circle"></div>English</div>
+          <div class="opt" onclick="pick('og-lang',this,'Russian')"><div class="opt-circle"></div>Russian</div>
+          <div class="opt" onclick="pick('og-lang',this,'German')"><div class="opt-circle"></div>German</div>
+          <div class="opt" onclick="pick('og-lang',this,'Spanish')"><div class="opt-circle"></div>Spanish</div>
+          <div class="opt" onclick="pick('og-lang',this,'French')"><div class="opt-circle"></div>French</div>
+          <div class="opt" onclick="pick('og-lang',this,'Other')"><div class="opt-circle"></div>Other language</div>
+        </div>
+      </div>
+      <div class="nav-btns">
+        <button class="btn-back" onclick="goTo(2)">Back</button>
+        <button class="btn-next" onclick="goTo(4)">Continue</button>
+      </div>
+    </div>
+
+    <!-- Panel 4 -->
+    <div class="form-panel" id="fp4">
+      <p class="panel-title">Review &amp; submit</p>
+      <p class="panel-sub">Almost done — just confirm your email.</p>
+      <div class="summary-box">
+        <div class="sum-row"><span class="sum-label">Topic</span><span class="sum-val" id="s-topic">—</span></div>
+        <div class="sum-row"><span class="sum-label">Length</span><span class="sum-val" id="s-len">—</span></div>
+        <div class="sum-row"><span class="sum-label">Tone</span><span class="sum-val" id="s-tone">—</span></div>
+        <div class="sum-row"><span class="sum-label">Language</span><span class="sum-val" id="s-lang">—</span></div>
+        <div class="sum-total"><span>Total</span><span id="s-price">—</span></div>
+      </div>
+      <div class="field">
+        <label>Your email address *</label>
+        <input type="email" id="f-email" placeholder="you@example.com">
+        <div class="hint">Your finished article will be sent here within 24 hours.</div>
+      </div>
+      <div class="nav-btns">
+        <button class="btn-back" onclick="goTo(3)">Back</button>
+        <button class="btn-next" onclick="submitForm()">Place order</button>
+      </div>
+    </div>
+
+    <!-- Panel 5: Success -->
+    <div class="form-panel" id="fp5">
+      <div class="success-box">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Order received!</h3>
+        <p>Your article will be in your inbox within 24 hours.<br>Thank you for your order.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 ArticlePro &mdash; Professional SEO content, any language, 24h delivery.
+</footer>
+
+<script>
+  const sel = {};
+  const prices = { '500 words': '$15', '1000 words': '$30', '2000 words': '$55' };
+
+  function pick(gid, el, val) {
+    document.querySelectorAll('#' + gid + ' .opt').forEach(o => o.classList.remove('sel'));
+    el.classList.add('sel');
+    sel[gid] = val;
+  }
+
+  function goTo(n) {
+    if (n === 2) {
+      const topic = document.getElementById('f-topic').value.trim();
+      if (!topic) { alert('Please enter the article topic.'); return; }
+    }
+    if (n === 4) {
+      if (!sel['og-len']) { alert('Please select an article length.'); return; }
+      document.getElementById('s-topic').textContent = document.getElementById('f-topic').value || '—';
+      document.getElementById('s-len').textContent = sel['og-len'] || '—';
+      document.getElementById('s-tone').textContent = sel['og-tone'] || 'Not specified';
+      document.getElementById('s-lang').textContent = sel['og-lang'] || 'Not specified';
+      document.getElementById('s-price').textContent = prices[sel['og-len']] || '—';
+    }
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById('fp' + i).classList.toggle('active', i === n);
+    }
+    ['sd1','sd2','sd3','sd4'].forEach((id, i) => {
+      const d = document.getElementById(id);
+      d.className = 'snav-dot' + (i + 1 < n ? ' done' : i + 1 === n ? ' active' : '');
+    });
+    ['sl1','sl2','sl3'].forEach((id, i) => {
+      document.getElementById(id).className = 'snav-line' + (i + 1 < n ? ' done' : '');
+    });
+    document.getElementById('order').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function submitForm() {
+    const email = document.getElementById('f-email').value.trim();
+    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+    goTo(5);
+  }
+</script>
+</body>
+</html>
